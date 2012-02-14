@@ -90,7 +90,19 @@ void pList(Node<T>* head) {
 }
 
 template <class T>
-Node<T>* reverse(Node<T>** head, Node<T>* n, int lev) {
+Node<T>* reverse(Node<T>** node) {
+	if (*(node)->next==NULL) {
+		(*head)=n;
+		return (*head);
+	} else {
+		reverse(head,n->next,lev+1)->next = n;
+		if (lev==0) n->next=NULL;
+		return n;
+	}
+}
+
+template <class T>
+Node<T>* reverse2(Node<T>** head) {
 	if (n->next==NULL) {
 		(*head)=n;
 		return (*head);
