@@ -102,6 +102,21 @@ Node<T>* reverse(Node<T>** head, Node<T>* n, int lev) {
 }
 
 template <class T>
+Node<T>* reverse(Node<T>* head) {
+  if (head==NULL || head->next == NULL) return head;
+  Node<T>* prev = head;
+  Node<T>* cur = head->next;
+  while (cur!=NULL) {
+    Node<T>* temp = cur->next;
+    cur->next = prev;
+    prev = cur;
+    cur = temp;
+  }
+  head->next = NULL;
+  return prev;
+}
+
+template <class T>
 void deleteList(Node<T>** head) {
 	if ((*head)!=NULL) {
 		deleteList(&((*head)->next));
@@ -116,7 +131,7 @@ int main() {
 	addNode(&head, 2);
 	addNode(&head, 3);
 	pList(head);
-	reverse(&head,head,0);
+	head = reverse(head);
 	pList(head);
 	deleteNode(&head,1);
 	deleteNode(&head,2);

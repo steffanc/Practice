@@ -3,6 +3,12 @@
 
 using namespace std;
 
+// PROS
+//  - best, avg, worst case is O(nlogn) for time complexity
+// CONS
+//  - worst case of O(n) space complexity 
+//    - can be done in place but takes longer O(n(logn)^2)
+
 int _l = 7;
 
 void pArray(int* a, int l) {

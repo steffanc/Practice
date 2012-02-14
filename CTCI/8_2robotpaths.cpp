@@ -14,6 +14,6 @@ void gridpaths(unsigned &ans, unsigned n, unsigned x, unsigned y) {
 
 int main() {
 	unsigned num=0;
-	gridpaths(num,9,1,1);
+	gridpaths(num,3,1,1);
 	cout << num << endl;
 }
