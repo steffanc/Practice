@@ -90,31 +90,19 @@ void pList(Node<T>* head) {
 }
 
 template <class T>
-Node<T>* reverse(Node<T>** node) {
-	if (*(node)->next==NULL) {
-		(*head)=n;
-		return (*head);
-	} else {
-		reverse(head,n->next,lev+1)->next = n;
-		if (lev==0) n->next=NULL;
-		return n;
-	}
+Node<T>* reverse(Node<T>** head, Node<T>* node, int lev) {
+  if (node->next==NULL) {
+    (*head)=node;
+    return (*head);
+  } else {
+    reverse(head,node->next,lev+1)->next = node;
+    if (lev==0) node->next=NULL;
+    return node;
+  }
 }
 
 template <class T>
-Node<T>* reverse2(Node<T>** head) {
-	if (n->next==NULL) {
-		(*head)=n;
-		return (*head);
-	} else {
-		reverse(head,n->next,lev+1)->next = n;
-		if (lev==0) n->next=NULL;
-		return n;
-	}
-}
-
-template <class T>
-Node<T>* reverse(Node<T>* head) {
+Node<T>* reverse2(Node<T>* head) {
   if (head==NULL || head->next == NULL) return head;
   Node<T>* prev = head;
   Node<T>* cur = head->next;
@@ -143,7 +131,8 @@ int main() {
 	addNode(&head, 2);
 	addNode(&head, 3);
 	pList(head);
-	head = reverse(head);
+	//reverse(&head,head,0);
+	head = reverse2(head);
 	pList(head);
 	deleteNode(&head,1);
 	deleteNode(&head,2);
