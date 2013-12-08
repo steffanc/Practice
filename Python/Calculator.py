@@ -1,3 +1,17 @@
+# 1) What's the most difficult bug that you solved during your time at
+# Blindsight?
+# 2) Want to get back into programming?
+# 3) Why did you transition into product development from programming?
+
+
+# "1+4-3*2/2"
+# "1+1"
+# "1+1-1"=1, "1-1+1"=1 NOT -1
+# "1+1-2*3"=-4
+# "1+1-2*4/2"=-2, "1+1-4/2*2"=-2 NOT 
+
+
+
 # edge cases, testing
 # handling whitespace
 # order of operations
