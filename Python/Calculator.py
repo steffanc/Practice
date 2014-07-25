@@ -1,16 +1,11 @@
-# 1) What's the most difficult bug that you solved during your time at
-# Blindsight?
-# 2) Want to get back into programming?
-# 3) Why did you transition into product development from programming?
-
+# Given an equation in a string, write a function to evaluate the equation and
+# return the result
 
 # "1+4-3*2/2"
 # "1+1"
 # "1+1-1"=1, "1-1+1"=1 NOT -1
 # "1+1-2*3"=-4
-# "1+1-2*4/2"=-2, "1+1-4/2*2"=-2 NOT 
-
-
+# "2-3*4+1"=-9
 
 # edge cases, testing
 # handling whitespace
@@ -49,7 +44,7 @@ def do_math(s):
 
     return float(s)
 
-print "DERP1"
+print "MATH1"
 print do_math('1+1-1/2*6')
 print do_math('1+1-2+1')
 print do_math('1')
@@ -85,7 +80,7 @@ def divide(s):
         out/=float(i)
     return out
 
-print "DERP2"
+print "MATH2"
 print do_math1('1 +1-1/3')
 print do_math('1+1-2+1')
 print do_math1('1')
@@ -124,7 +119,7 @@ def do_math2(s):
 
     return equation[0]
 
-print "DERP3"
+print "MATH3"
 print do_math2('2+24*48/32')
 
 

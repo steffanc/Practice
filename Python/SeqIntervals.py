@@ -1,6 +1,14 @@
 # Given a set of [a,b] intervals on the number line, find the longest ordered sequence of (a subset of) the intervals such that each consecutive interval is nested inside the previous one.
 # "Nested" means this: If interval X is nested inside Y, then Y.a < X.a and X.b < Y.b.
 
+# intervals = [(3,3),(2,4),(1,5),(3,4),(4,4)]
+
+# |-|
+#  |
+#|---|
+#  ||
+#   |
+
 import itertools
 
 # brute force, go over all permutations of a list
@@ -16,9 +24,6 @@ def do_intervals1(seq):
         if max_seq == None or len(curr_seq) > len(max_seq):
             max_seq = curr_seq
     return max_seq
-
-intervals = [(1,5),(2,4),(3,4),(4,4),(3,3)]
-print do_intervals1(intervals)
 
 # sorting, sort intervals by left most point
 # this means that all intervals from left to right in the list will be
@@ -40,16 +45,13 @@ def do_intervals2(seq):
         i+=1
     return max_seq
 
-print do_intervals2(intervals)
-
-# sorting with dynamic programming, same as above except cache results of
-# nested intervals so they don't have to be recomputed
+# sorting with dynamic programming and memoization
 # nodes only have to be visited once after sorting
 # sort: O(N*logN)
 # compute: O(N)
 def do_intervals3(seq):
     seq.sort() # sort by left most point, O(N*log(N))
-    dyn_seq = map(lambda x: [x,None], seq) # O(N)
+    dyn_seq = map(lambda x: [x,None], seq) # O(N), [(x,y), None], [[x1,y1], None], ...
     max_seq = None
 
     def rec_interval(pos):
@@ -91,4 +93,16 @@ def do_intervals3(seq):
 
     return max_sub_seq
 
-print do_intervals3(intervals)
+intervals = [(1,5),(2,4),(3,4),(4,4),(3,3)]
+intervals2 = [(1,10),(2,3),(3,9),(4,8),(5,7)]
+intervals3 = [(1,10),(2,3),(2,9),(4,8),(5,7)]
+
+#|---|
+# |-|
+#  ||
+#   |
+#  |
+
+print do_intervals1(intervals3)
+print do_intervals2(intervals3)
+print do_intervals3(intervals3)
